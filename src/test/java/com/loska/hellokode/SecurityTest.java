@@ -22,7 +22,7 @@ public class SecurityTest {
     public void shouldNotAllowUnauthenticatedRequest() {
         webTestClient
                 .get()
-                .uri("http://localhost:8080/search")
+                .uri("http://localhost:8080/api/v1/search/movie")
                 .exchange()
                 .expectStatus().isEqualTo(HttpStatus.UNAUTHORIZED);
     }
@@ -32,7 +32,7 @@ public class SecurityTest {
     public void shouldAllowAuthenticatedRequest() {
         webTestClient
                 .get()
-                .uri("http://localhost:8080/search")
+                .uri("http://localhost:8080/api/v1/search/movie")
                 .exchange()
                 .expectStatus().isEqualTo(HttpStatus.OK);
     }

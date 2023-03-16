@@ -19,7 +19,7 @@ public class CorsTest {
     void shouldAllowAnyRequestOrigin() {
         WebTestClient.ResponseSpec response = webTestClient
                 .get()
-                .uri("http://localhost:8080/search")
+                .uri("http://localhost:8080/api/v1/search/movie")
                 .header("Origin", "http://random-origin.com")
                 .exchange();
 

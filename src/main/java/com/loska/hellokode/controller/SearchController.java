@@ -4,17 +4,19 @@ import com.loska.hellokode.model.MovieSearchResponse;
 import com.loska.hellokode.service.MovieServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
 @RestController
 @AllArgsConstructor
-public class MovieController {
+@RequestMapping("/api/v1/search")
+public class SearchController {
 
     private MovieServiceImpl movieService;
 
-    @GetMapping("/search")
+    @GetMapping("/movie")
     public Mono<MovieSearchResponse> getMovies(
             @RequestParam(name = "query", defaultValue = "") String query,
             @RequestParam(name = "page", defaultValue = "1") Integer page) {
